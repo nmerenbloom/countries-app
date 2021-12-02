@@ -8,7 +8,7 @@ interface DetailsModalProps {
 
 export const DetailsModal = (props: DetailsModalProps) => {
   const { details } = props;
-  const { state, dispatch } = useCustomContext();
+  const { dispatch } = useCustomContext();
   return (
     <div className="custom-modal">
       <div className="modal-dialog">

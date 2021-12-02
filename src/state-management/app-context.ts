@@ -1,6 +1,5 @@
 import React, { Dispatch } from 'react';
 import { AppState } from '../types/app-state';
-import { Action } from './actions';
 
 interface ContextObject {
     state: AppState;

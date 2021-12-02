@@ -32,7 +32,7 @@ const App = () => {
       }
     };
     getAllCounttries();
-  }, []);
+  }, [state?.sort]);
 
   const stateManagementProviderValues = { state, dispatch };
 
