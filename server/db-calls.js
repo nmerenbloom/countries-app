@@ -15,10 +15,8 @@ const AllCountriesGet = (req, res) => {
 
 const CountryDetailsGet = (req) => {
   return db
-    .prepare(
-      "SELECT c.Name, c.LocalName, c.Continent, c.Region, c.Population, ci.Name AS Capital, tl.Language FROM Country AS c JOIN City AS ci ON  c.Capital = ci.ID JOIN TopLanguage AS tl ON tl.Name = c.Name WHERE c.Name = ?"
-    )
-    .get(req.name);
+    .prepare(`SELECT * FROM CountryLanguage WHERE Name = '${req.name}'`)
+    .get();
 };
 
 const AlternateDetailsGet = (req, res) => {
