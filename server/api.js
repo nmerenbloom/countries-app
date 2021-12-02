@@ -1,14 +1,15 @@
-const { response } = require("express");
-const express = require("express");
+import express from "express";
 
-const {
+import {
   AllCountriesGet,
   CountryDetailsGet,
   AlternateDetailsGet,
-} = require("./db-calls.js");
+} from "./db-calls.js";
+
+
 const httpRestEndpoint = express.Router();
 
-module.exports = () => {
+export const routes = () => {
   httpRestEndpoint.post("/api/all", async (request, response) => {
     const allCountriesResponse = AllCountriesGet(request.body);
     response.send(allCountriesResponse);
@@ -30,9 +31,9 @@ module.exports = () => {
     }
   });
 
-  httpRestEndpoint.get('/api/spongebob', async (request, response) => {
-    response.sendFile(__dirname + '/spongebob.png');
-  })
+  httpRestEndpoint.get("/api/spongebob", async (request, response) => {
+    response.sendFile(__dirname + "/spongebob.png");
+  });
 
   return httpRestEndpoint;
 };
