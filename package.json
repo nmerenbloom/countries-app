@@ -32,7 +32,7 @@
   },
   "scripts": {
     "client-start": "react-scripts start",
-    "prestart": "npm run client-build",
+    "preserve": "npm run client-build",
     "serve": "nodemon ./server",
     "build": "npm run client-build",
     "start": "node ./server",
