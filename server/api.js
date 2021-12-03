@@ -1,4 +1,6 @@
 import express from "express";
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
 import {
   AllCountriesGet,
@@ -32,7 +34,8 @@ export const routes = () => {
   });
 
   httpRestEndpoint.get("/api/spongebob", async (request, response) => {
-    response.sendFile(__dirname + "/spongebob.png");
+    const __filename = fileURLToPath(import.meta.url);
+    response.sendFile(join(dirname(__filename), "/spongebob.png"));
   });
 
   return httpRestEndpoint;

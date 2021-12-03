@@ -20,6 +20,7 @@ export const AllCountriesGet = (req, res) => {
       .all();
   } catch (error) {
     console.log(error);
+    console.error(error);
   }
 
 };
@@ -31,6 +32,7 @@ export const CountryDetailsGet = (req) => {
       .get();
   } catch (error) {
     console.log(error);
+    console.error(error);
   }
 
 };
@@ -42,6 +44,7 @@ export const AlternateDetailsGet = (req, res) => {
       .get();
   } catch (error) {
     console.log(error);
+    console.error(error);
   }
 
 };
