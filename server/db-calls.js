@@ -14,19 +14,34 @@ const db = new Database(
 );
 
 export const AllCountriesGet = (req, res) => {
-  return db
-    .prepare(`SELECT Name, Population FROM Country ORDER BY ${req.field} ${req.direction}`)
-    .all();
+  try {
+    return db
+      .prepare(`SELECT Name, Population FROM Country ORDER BY ${req.field} ${req.direction}`)
+      .all();
+  } catch (error) {
+    console.log(error);
+  }
+
 };
 
 export const CountryDetailsGet = (req) => {
-  return db
-    .prepare(`SELECT * FROM CountryLanguage WHERE Name = '${req.name}'`)
-    .get();
+  try {
+    return db
+      .prepare(`SELECT * FROM CountryLanguage WHERE Name = '${req.name}'`)
+      .get();
+  } catch (error) {
+    console.log(error);
+  }
+
 };
 
 export const AlternateDetailsGet = (req, res) => {
-  return db
-    .prepare(`SELECT * FROM Country WHERE Name = '${req.name}'`)
-    .get();
+  try {
+    return db
+      .prepare(`SELECT * FROM Country WHERE Name = '${req.name}'`)
+      .get();
+  } catch (error) {
+    console.log(error);
+  }
+
 };
