@@ -6,6 +6,28 @@
   background-color: rgba(210, 238, 238, 0.438);
 }
 
+.banner {
+  object-fit: cover;
+}
+
+
+@media (max-width: 666px) { 
+  img {
+    height: 200px;    
+  }
+
+  html {
+    font-size: 0.75rem;
+  }
+ }
+
+ @media (max-width: 380px) { 
+  html {
+    font-size: 0.66rem;
+  }
+  
+ }
+
 .custom-modal {
   z-index: 5;
   position: fixed;
