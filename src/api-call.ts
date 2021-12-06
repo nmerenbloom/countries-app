@@ -15,10 +15,13 @@ export const callGetAllCountries = async (sort: SortDetails) => {
 export const callCountryDetails = async (country: { name: string }) => {
     try {
         const response = await axios.post("/api/details", { ...country });
+        console.log(response);
         if (response.statusText === "GOOD_DATA") {
             return response.data;
         } else if (response.statusText === "ALTERNATE_DATA") {
             return AlternateDataMapper(response.data);
+        } else {
+            console.log('response statusText had no match');
         }
     } catch (error) {
         console.log(error);
