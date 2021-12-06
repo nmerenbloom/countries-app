@@ -20,13 +20,11 @@ export const routes = () => {
   httpRestEndpoint.post("/api/details", async (request, response) => {
     const countryDetails = CountryDetailsGet(request.body);
     if (countryDetails) {
-      response.statusMessage = "GOOD_DATA";
-      response.send(countryDetails);
+      response.send({ type: 'primary', dataObject: countryDetails });
     } else {
       const alt = AlternateDetailsGet(request.body);
       if (alt) {
-        response.statusMessage = "ALTERNATE_DATA";
-        response.send(alt);
+        response.send({ type: 'alternate', dataObject: alt });
       } else {
         response.sendStatus(500);
       }

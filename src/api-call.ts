@@ -15,10 +15,10 @@ export const callGetAllCountries = async (sort: SortDetails) => {
 export const callCountryDetails = async (country: { name: string }) => {
     try {
         const response = await axios.post("/api/details", { ...country });
-        if (response.statusText === "GOOD_DATA") {
-            return response.data;
-        } else if (response.statusText === "ALTERNATE_DATA") {
-            return AlternateDataMapper(response.data);
+        if (response.data.type === 'primary') {
+            return response.data.dataObject;
+        } else if (response.data.type === 'alternate') {
+            return AlternateDataMapper(response.data.dataObject);
         }
     } catch (error) {
         console.log(error);

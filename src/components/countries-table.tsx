@@ -23,7 +23,6 @@ export const CountriesTable = (props: CountriesTableProps) => {
     try {
       const response: CountryDetailsSqliteResponse = await callCountryDetails({ name: name });
       if (response) {
-        console.log(response);
         dispatch(countryRowSelectedAction(index, name, response));
         dispatch(setModalStatusAction(true));
         dispatch(setSpinnerAction(false));

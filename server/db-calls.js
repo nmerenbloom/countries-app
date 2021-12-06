@@ -26,6 +26,7 @@ export const AllCountriesGet = (req, res) => {
 };
 
 export const CountryDetailsGet = (req) => {
+  console.log(req.name)
   try {
     return db
       .prepare(`SELECT * FROM CountryLanguage WHERE Name = '${req.name}'`)
