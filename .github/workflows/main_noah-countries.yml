@@ -4,7 +4,8 @@
 name: Build and deploy Node.js app to Azure Web App - noah-countries
 
 on:
-  merge:
+  pull_request:
+    types: [closed]
     branches:
       - prod
   workflow_dispatch:
